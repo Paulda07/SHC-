@@ -28,4 +28,5 @@ def get_session(service_account_json):
     scoped_credentials= credentials.with_scopes(['https://www.googleapis.com/auth/cloud-platform'])
     session = requests.AuthorizedSession(scoped_credentials)
 
+
     return session
