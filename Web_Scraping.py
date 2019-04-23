@@ -32,9 +32,28 @@
 # raw_html = simple_get('https://realpython.com/blog/')
 # print(len(raw_html))
 
-import urllib3
+# import urllib3
+# from bs4 import BeautifulSoup as b
+# import requests
+
+# base_url = 'https://pipl.com/search/?q='
+# request = 'Paul+Sampson'
+# url_seperator = '&l=&sloc=&in=6'
+
+# url = base_url+request+url_seperator
+
+# # html = urllib3.urlopen(url)
+
+# # print (html)
+
+# http = urllib3.PoolManager()
+
+
+# response = requests.get(url)
+
 from bs4 import BeautifulSoup as b
 import requests
+from urllib.request import Request, urlopen
 
 base_url = 'https://pipl.com/search/?q='
 request = 'Paul+Sampson'
@@ -46,10 +65,14 @@ url = base_url+request+url_seperator
 
 # print (html)
 
-http = urllib3.PoolManager()
+# http = urllib3.PoolManager()
+req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+webpage = urlopen(req).read()
 
 
-response = requests.get(url)
+# response = requests.get(url)
 
-print (response)
+print (webpage)
+
+
 # soup = BeautifulSoup(response.data)
